@@ -7,9 +7,13 @@ export class UsersService {
 
   async findByTelegramId(telegramId: string) {
     return this.prisma.user.findUnique({
-      where: {
-        telegramId,
-      },
+      where: { telegramId },
+    });
+  }
+
+  async findById(id: number) {
+    return this.prisma.user.findUnique({
+      where: { id },
     });
   }
 
